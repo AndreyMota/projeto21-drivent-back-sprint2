@@ -1,10 +1,10 @@
-import { Router } from "express";
-import { authenticateToken } from "@/middlewares";
+import { Router } from 'express';
+import { authenticateToken } from '@/middlewares';
 
-const ticketRouter = Router()
+const ticketRouter = Router();
 
-ticketRouter.post('/tickets', authenticateToken);
-ticketRouter.get('/tickets', authenticateToken);
-ticketRouter.get('/tickets/types', authenticateToken);
+ticketRouter.post('/', authenticateToken);
+ticketRouter.get('/', authenticateToken);
+ticketRouter.get('/types', authenticateToken);
 
 export { ticketRouter };

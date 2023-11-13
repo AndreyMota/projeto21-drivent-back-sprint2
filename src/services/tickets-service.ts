@@ -1,16 +1,13 @@
-
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
 export const createTicketService = async (ticketData: any) => {
   try {
-
     const createdTicket = await prisma.ticket.create({
       data: {
         ticketTypeId: ticketData.ticketTypeId,
         userId: ticketData.userId,
-    
       },
     });
 
@@ -21,11 +18,8 @@ export const createTicketService = async (ticketData: any) => {
   }
 };
 
-
-
 export const checkUserEnrollment = async (userId: number): Promise<boolean> => {
   try {
-
     const enrollment = await prisma.enrollment.findUnique({ where: { userId } });
     return !!enrollment;
   } catch (error) {
